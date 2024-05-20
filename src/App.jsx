@@ -4,21 +4,28 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./ui/AppLayout";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 function App() {
   return (
     <>
-      <GlobalStyles/>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Navigate replace to="about" />} />
-          <Route path="about" element={<About/>}/>
-          <Route path="projects" element={<Projects/>}/>
-          <Route path="projects/:projectID" element={<Projects/>}/>
-          <Route path="experience" element={<Experience/>}/>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+     <DarkModeProvider>
+        <GlobalStyles/>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout/>}>
+              <Route index element={<Navigate replace to="about" />} />
+              <Route path="about" element={<About/>}/>
+              <Route path="projects" element={<Projects/>}/>
+              <Route path="projects/:projectID" element={<Projects/>}/>
+              <Route path="experience" element={<Experience/>}/>
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+     </DarkModeProvider>
+      
     </>
     
   )
