@@ -1,7 +1,11 @@
+import DashboardLayout from "../features/about/DashboardLayout"
+// import Heading from "../ui/heading"
+
 function About() {
     return (
         <div>
-            <h1>About</h1>
+            {/* <Heading as="h0">About Me</Heading> */}
+            <DashboardLayout/>
         </div>
     )
 }
