@@ -4,8 +4,9 @@ const GlobalStyles = createGlobalStyle`
 :root {
   &, &.light-mode {
   /* Grey */
-  --color-grey-0: #fff;
-  --color-grey-50: #f9fafb;
+  --color-brand-600: #76BA99;
+  --color-grey-0: #D7E4C0;
+  --color-grey-50: #114232;
   --color-grey-100: #f3f4f6;
   --color-grey-200: #e5e7eb;
   --color-grey-300: #d1d5db;
@@ -43,6 +44,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   &.dark-mode {
+    --color-brand-600: #4f46e5;
     --color-grey-0: #18212f;
 --color-grey-50: #111827;
 --color-grey-100: #1f2937;
@@ -85,7 +87,6 @@ const GlobalStyles = createGlobalStyle`
   --color-brand-100: #e0e7ff;
   --color-brand-200: #c7d2fe;
   --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
   --color-brand-700: #4338ca;
   --color-brand-800: #3730a3;
   --color-brand-900: #312e81;
