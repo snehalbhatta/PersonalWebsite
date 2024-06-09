@@ -7,10 +7,15 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import { DarkModeProvider } from "./context/DarkModeContext";
 
+import "./index.css";
+
+
 function App() {
+  
   return (
     <>
-     <DarkModeProvider>
+    
+      <DarkModeProvider>
         <GlobalStyles/>
         <BrowserRouter>
           <Routes>

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Thomson from "../../../public/thomson.png"
 import Dayforce from "../../../public/dayforce.png"
 import Canon from "../../../public/canon.png"
+import { useState, useEffect } from 'react';
+
 const TopCard = styled.div`
 background-color: var(--color-grey-0);
 border: 1px solid var(--color-grey-100);
@@ -9,8 +11,14 @@ border-radius: var(--border-radius-md);
 margin:0;
 width:90%;
 display:flex;
-/* flex-direction: column; */
+/* flex-direction: column;  */
 /* height:50px; */
+
+@media screen and (max-width: 832px) {
+    /* width:459px;
+     */
+    flex-direction: column;
+};
 
 `
 const Wrapper =  styled.div`
@@ -34,6 +42,11 @@ const ImageLeft = styled.img`
     margin-right: 30px;
     flex-grow:1;
     /* margin-bottom:25px; */
+    @media screen and (max-width: 832px) {
+        float:none;
+        margin-right:0;
+        align-self:center;
+    };
 `
 
 const ImageRight = styled.img`
@@ -43,6 +56,11 @@ const ImageRight = styled.img`
     border: 3px solid var(--color-grey-50);
     margin-left: 30px;
     flex-grow:1;
+    @media screen and (max-width: 832px) {
+        float:none;
+        margin-right:0;
+        align-self:center;
+    };
 `
 
 const Responsibilities= styled.div`
@@ -61,72 +79,93 @@ overflow-wrap: break-word;
 `
 
 function ExperienceDashboard() {
+
+    const [matches, setMatches] = useState(
+        window.matchMedia("(max-width: 832px)").matches
+      )
+    
+      useEffect(() => {
+        window
+        .matchMedia("(max-width: 832px)")
+        .addEventListener('change', e => setMatches( e.matches ));
+      }, []);
+
     return (
         <Wrapper>
             <TopCard>
                 <ImageLeft src={Dayforce}/>
                 <Responsibilities>
+                    <h1>May 2023 - Present</h1>
                     <ol>
                         <li>
-                            Managed, maintained, and developed features on 13 microservices that form a product platform as a part of the ONESOURCE Core Platform team.
+                        Leveraged React extensively in feature development for the message center microservice, integrating unit tests using Jest and automation using Playwright and SpecFlow (Behavior-Driven Development framework), ensuring robustness and scalability of the application.
                         </li>
                         <li>
-                            Developed APIs and introduced JWT token authentication as a part of the OSP-CIAM team.
+                        Instrumented automation testing strategies, significantly expanding test coverage and efficiency across team projects
                         </li>
                         <li>
-                            Increased Unit Test coverage of the code base.
+                        Enhanced unit test coverage within the team by implementing comprehensive unit tests, resulting in improved code quality and reliability.
                         </li>
                         <li>
-                            Communicated and collaborated with product management team to deliver on
-                            requirements.
+                        Played a pivotal role in feature development for the Dayforce monolith, utilizing C# and .NET Framework to deliver impactful solutions.
                         </li>
                         <li>
                             Collaborated with the release management team for monthly release activities.
                         </li>
                         <li>
-                            Actively participated in the SCRUM development cycle and performed code
-                            reviews.
+                        Actively participated in bug triage processes, facilitating streamlined issue resolution and bolstering product stability.
                         </li>
                         <li>
-                            Technology: C#, .NET Framework, MSSQL, Git, Postman, Moq, NuGet
+                        Enhanced existing CI/CD pipelines in Azure, optimizing deployment processes and enhancing the overall development workflow for increased efficiency and reliability.
+                        </li>
+                        <li>
+                            Technology: C#, .NET Framework, SQL, Git, Postman, Playwright, Jest, Specflow, React, HTML/CSS
                         </li>
                     </ol>    
                 </Responsibilities>
             </TopCard>
             <TopCard>
-                <Responsibilities>
-                    <ol>
-                        <li>
-                            Managed, maintained, and developed features on 13 microservices that form a product platform as a part of the ONESOURCE Core Platform team.
-                        </li>
+                {matches && <ImageRight src={Thomson} />}
 
-                        <li>
-                            Developed APIs and introduced JWT token authentication as a part of the OSP-CIAM team.
-                        </li>
-                        <li>
-                            Increased Unit Test coverage of the code base.
-                        </li>
-                        <li>
-                            Communicated and collaborated with product management team to deliver on
-                            requirements.
-                        </li>
-                        <li>
-                            Collaborated with the release management team for monthly release activities.
-                        </li>
-                        <li>
-                            Actively participated in the SCRUM development cycle and performed code
-                            reviews.
-                        </li>
-                        <li>
-                            Technology: C#, .NET Framework, MSSQL, Git, Postman, Moq, NuGet
-                        </li>
-                    </ol>
+                    <Responsibilities>
+                        <h1>Sep 2021 - Sep 2022</h1>
+
+                        <ol>
+                            <li>
+                                Managed, maintained, and developed features on 13 microservices that form a product platform as a part of the ONESOURCE Core Platform team.
+                            </li>
+
+                            <li>
+                                Developed APIs and introduced JWT token authentication as a part of the OSP-CIAM team.
+                            </li>
+                            <li>
+                                Increased Unit Test coverage of the code base.
+                            </li>
+                            <li>
+                                Communicated and collaborated with product management team to deliver on
+                                requirements.
+                            </li>
+                            <li>
+                                Collaborated with the release management team for monthly release activities.
+                            </li>
+                            <li>
+                                Actively participated in the SCRUM development cycle and performed code
+                                reviews.
+                            </li>
+                            <li>
+                                Technology: C#, .NET Framework, MSSQL, Git, Postman, Moq, NuGet
+                            </li>
+                        </ol>
                 </Responsibilities>
-                <ImageRight src={Thomson} />
+                
+                {!matches && <ImageRight src={Thomson} />}
+                
             </TopCard>
             <TopCard>
                 <ImageLeft src={Canon}/>
                 <Responsibilities>
+                    <h1>MAY 2019 - Jul 2019</h1>
+
                     <ol>
                         <li>
                             Created an administrative web-based application using HTML, CSS and JavaScript in the front end that allowed the HR department to keep track of the employee information.

@@ -11,10 +11,10 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: flex-end;
 `;
-
-function Header() {
+/* eslint-disable react/prop-types */
+function Header({id}) {
   return (
-    <StyledHeader>
+    <StyledHeader id={id}>
       <HeaderMenu />
     </StyledHeader>
   );
