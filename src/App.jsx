@@ -8,6 +8,7 @@ import AppLayout from "./ui/AppLayout";
 import { DarkModeProvider } from "./context/DarkModeContext";
 
 import "./index.css";
+import Project from "./pages/Project";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
               <Route index element={<Navigate replace to="about" />} />
               <Route path="about" element={<About/>}/>
               <Route path="projects" element={<Projects/>}/>
-              <Route path="projects/:projectID" element={<Projects/>}/>
+              <Route path="projects/:projectID" element={<Project/>}/>
               <Route path="experience" element={<Experience/>}/>
               <Route path="*" element={<PageNotFound />} />
             </Route>
