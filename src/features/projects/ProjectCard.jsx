@@ -45,7 +45,7 @@ function ProjectCard({ title,description }) {
         </Subpoints>
       
       
-      <Button onClick={() => navigate(`/projects/${title}`)}>
+      <Button onClick={() => navigate(`/projects/${title.replace(/\s/g, '')}`)}>
             Details
       </Button>
     </StyledProject>

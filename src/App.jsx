@@ -24,7 +24,7 @@ function App() {
               <Route index element={<Navigate replace to="about" />} />
               <Route path="about" element={<About/>}/>
               <Route path="projects" element={<Projects/>}/>
-              <Route path="projects/:projectID" element={<Project/>}/>
+              <Route path="projects/:projectName" element={<Project/>}/>
               <Route path="experience" element={<Experience/>}/>
               <Route path="*" element={<PageNotFound />} />
             </Route>
